@@ -8,9 +8,7 @@ const CastList = ({ cast }) => {
       {cast &&
         cast.map(({ id, name, profile_path, character }) => (
           <Item key={id}>
-            {profile_path && (
-              <img src={`${BASE_IMG}${profile_path}`} alt={character} />
-            )}
+            <img src={`${BASE_IMG}${profile_path}`} alt={character} />
             <h2>{name}</h2>
             <p>{character}</p>
           </Item>

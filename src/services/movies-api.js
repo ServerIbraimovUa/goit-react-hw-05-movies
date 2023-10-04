@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https:api.themoviedb.org/3';
+const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '05fecd37f4938abe676372f3977174d8';
 axios.defaults.params = {
   api_key: API_KEY,
@@ -17,4 +17,10 @@ export async function getMoveDetails(id) {
 
 export async function getCastMovie(id) {
   return (await axios.get(`${BASE_URL}/movie/${id}/credits`)).data;
+}
+
+// ('https://api.themoviedb.org/3/search/movie?query=cat&include_adult=false&language=en-US&page=1');
+
+export async function f(nameText) {
+  return await axios.get(`${BASE_URL}/search/movie?query=${nameText}`);
 }
