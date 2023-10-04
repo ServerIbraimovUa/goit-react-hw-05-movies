@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Header = styled.header`
@@ -17,7 +18,7 @@ export const Header = styled.header`
   ul {
     display: flex;
     gap: 24px;
-    margin-left: 44px;
+    margin-left: 172px;
 
     li {
       padding: 24px 0;
@@ -30,5 +31,16 @@ export const Header = styled.header`
         color: #ee0000;
       }
     }
+  }
+`;
+
+export const LinkStyle = styled(Link)`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  span {
+    font-size: 24px;
+    text-transform: uppercase;
   }
 `;

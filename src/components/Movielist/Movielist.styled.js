@@ -4,11 +4,8 @@ export const Box = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
-
+  gap: 24px;
   font-size: 20px;
-
   ul {
     display: flex;
     gap: 10px;
@@ -31,26 +28,45 @@ export const Span = styled.span`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 4px solid;
-  /* ${({ rating }) => {
-    if (rating <= 5) {
-      return 'red';
-    } else if (rating < 7) {
-      return 'orange';
-    }
-    return 'green';
-  }}; */
+  border: 4px solid
+    ${({ rating }) => {
+      if (rating <= 5) {
+        return 'red';
+      } else if (rating < 7) {
+        return 'orange';
+      }
+      return 'green';
+    }};
+`;
+
+export const DetailWrrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  p {
+    margin-bottom: 30px;
+  }
+  h4 {
+    margin-bottom: 10px;
+  }
 `;
 
 export const ListLink = styled.ul`
   position: absolute;
   bottom: 0;
   right: 0;
-  a {
-    text-decoration: none;
-    color: #000;
+  li {
     background: #fff;
     padding: 10px 20px;
     border-radius: 20px;
+
+    &:hover,
+    &:focus {
+      background: #ee0000;
+      color: #fff;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 `;

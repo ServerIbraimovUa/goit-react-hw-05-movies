@@ -18,6 +18,11 @@ export async function getMoveDetails(id) {
 export async function getCastMovie(id) {
   return (await axios.get(`${BASE_URL}/movie/${id}/credits`)).data;
 }
+// /movie/{movie_id}/reviews
+
+export async function getReviewMovie(id) {
+  return (await axios.get(`${BASE_URL}/movie/${id}/reviews`)).data;
+}
 
 // ('https://api.themoviedb.org/3/search/movie?query=cat&include_adult=false&language=en-US&page=1');
 

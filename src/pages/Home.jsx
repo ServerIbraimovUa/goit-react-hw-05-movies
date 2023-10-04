@@ -1,6 +1,7 @@
-import { Container } from 'components/App.styled';
+import { Container, Section } from 'components/App.styled';
+import HomeList from 'components/HomeList/HomeList';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+
 import { getMovies } from 'services/movies-api';
 
 const Home = () => {
@@ -21,19 +22,12 @@ const Home = () => {
   }, []);
 
   return (
-    <section>
+    <Section>
       <Container>
-        {loading && (
-          <ul>
-            {movies.map(({ title, id }) => (
-              <li key={id}>
-                <Link to={`${id}`}>{title}</Link>
-              </li>
-            ))}
-          </ul>
-        )}
+        <h1>Popular movies of the day! </h1>
+        {loading && <HomeList movies={movies} />}
       </Container>
-    </section>
+    </Section>
   );
 };
 

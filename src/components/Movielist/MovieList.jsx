@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, ImgWrrap, ListLink, Span } from './Movielist.styled';
+import { Box, DetailWrrap, ImgWrrap, ListLink, Span } from './Movielist.styled';
 import { Link } from 'react-router-dom';
 
 const MovieList = ({ movie }) => {
@@ -12,9 +12,11 @@ const MovieList = ({ movie }) => {
       <Box>
         <ImgWrrap>
           <img src={`${BASE_IMG}${poster_path}`} alt={title} />
-          {vote_average && <Span>{vote_average.toFixed(1)}</Span>}
+          {vote_average && (
+            <Span rating={vote_average}>{vote_average.toFixed(1)}</Span>
+          )}
         </ImgWrrap>
-        <div>
+        <DetailWrrap>
           <h2>{title}</h2>
           <p>Release data: {release_date}</p>
           <h3>Overview</h3>
@@ -23,7 +25,7 @@ const MovieList = ({ movie }) => {
           <ul>
             {genres && genres.map(({ id, name }) => <li key={id}>{name}</li>)}
           </ul>
-        </div>
+        </DetailWrrap>
         <ListLink>
           <li>
             <Link to="cast">Cast</Link>

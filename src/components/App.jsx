@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './SharedLayout/SharedLayout';
 import MovieDetails from '../pages/MovieDetails';
 import Cast from './Cast/Cast';
+import Reviews from './Reviews/Reviews';
 
 const App = () => {
   return (
@@ -15,7 +16,7 @@ const App = () => {
           <Route path="movies" element={<Movies />} />
           <Route path=":movieId" element={<MovieDetails />}>
             <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<div>rew</div>} />
+            <Route path="reviews" element={<Reviews />} />
           </Route>
         </Route>
       </Routes>
