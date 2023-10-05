@@ -37,3 +37,8 @@ p {
   padding: 0;
   list-style: none;
 }
+h1 {
+  margin-bottom: 48px;
+  margin-top: 0;
+  font-size: 32px;
+}

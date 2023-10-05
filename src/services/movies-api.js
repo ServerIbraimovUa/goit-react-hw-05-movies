@@ -26,6 +26,6 @@ export async function getReviewMovie(id) {
 
 // ('https://api.themoviedb.org/3/search/movie?query=cat&include_adult=false&language=en-US&page=1');
 
-export async function f(nameText) {
-  return await axios.get(`${BASE_URL}/search/movie?query=${nameText}`);
+export async function getSearchMovies(queryText) {
+  return (await axios.get(`${BASE_URL}/search/movie?query=${queryText}`)).data;
 }

@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
-export const ListHome = styled.ul`
+export const ListSearch = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 24px;
+  gap: 18px;
 
   li {
-    width: 200px;
     font-size: 22px;
     &:hover {
       scale: 1.1;
@@ -15,7 +14,13 @@ export const ListHome = styled.ul`
     }
   }
   a {
+    display: block;
     text-decoration: none;
-    color: inherit;
+    color: #000;
+  }
+  img {
+    border: 1px solid #eee;
+    width: 200px;
+    height: 300px;
   }
 `;

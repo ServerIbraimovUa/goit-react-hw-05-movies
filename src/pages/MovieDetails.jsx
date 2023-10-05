@@ -9,33 +9,31 @@ const MovieDetails = () => {
   const [loading, setLoading] = useState(false);
   const { movieId } = useParams();
 
-  // useEffect(() => {
-  //   console.log(movieId);
-  //   const detail = async id => {
-  //     try {
-  //       const response = await getMoveDetails(id);
-  //       console.log(response);
-  //       setMovie(response);
-  //       setLoading(true);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
-  //   detail(movieId);
-
-  //   return () => {
-  //     detail(movieId);
-  //   };
-  // }, [movieId]);
   useEffect(() => {
-    getMoveDetails(movieId)
-      .then(response => {
+    const detail = async id => {
+      try {
+        const response = await getMoveDetails(id);
         setMovie(response);
-      })
-      .catch(console.log)
-      .finally(() => setLoading(true));
+        setLoading(true);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    detail(movieId);
+
+    return () => {
+      detail(movieId);
+    };
   }, [movieId]);
+  // useEffect(() => {
+  //   getMoveDetails(movieId)
+  //     .then(response => {
+  //       setMovie(response);
+  //     })
+  //     .catch(console.log)
+  //     .finally(() => setLoading(true));
+  // }, [movieId]);
 
   return (
     <>
