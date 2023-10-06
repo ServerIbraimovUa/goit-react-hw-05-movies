@@ -1,4 +1,5 @@
 import { Container, Section } from 'components/App.styled';
+import Error from 'components/Error/Error';
 import Loading from 'components/Loading/Loading';
 import MovieList from 'components/Movielist/MovieList';
 import React, { Suspense, useEffect, useState } from 'react';
@@ -8,6 +9,7 @@ import { getMoveDetails } from 'services/movies-api';
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -17,7 +19,9 @@ const MovieDetails = () => {
         setMovie(response);
         setLoading(true);
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
+        setError(true);
+        setLoading(false);
       }
     };
 
@@ -27,19 +31,12 @@ const MovieDetails = () => {
       detail(movieId);
     };
   }, [movieId]);
-  // useEffect(() => {
-  //   getMoveDetails(movieId)
-  //     .then(response => {
-  //       setMovie(response);
-  //     })
-  //     .catch(console.log)
-  //     .finally(() => setLoading(true));
-  // }, [movieId]);
 
   return (
     <>
       <Section>
         <Container>
+          {error && <Error />}
           {loading ? <MovieList movie={movie} /> : <Loading />}
         </Container>
       </Section>

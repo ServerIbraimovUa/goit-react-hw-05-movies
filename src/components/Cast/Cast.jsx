@@ -3,10 +3,12 @@ import { useParams } from 'react-router-dom';
 import { getCastMovie } from 'services/movies-api';
 import { Container, Section } from 'components/App.styled';
 import CastList from './CastList/CastList';
+import Error from 'components/Error/Error';
 
 const Cast = () => {
   const [cast, setCast] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -15,7 +17,9 @@ const Cast = () => {
         const { cast } = await getCastMovie(id);
         setCast(cast);
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
+        setError(true);
+        setLoading(false);
       } finally {
         setLoading(true);
       }
@@ -25,7 +29,10 @@ const Cast = () => {
   }, [movieId]);
   return (
     <Section>
-      <Container>{loading && <CastList cast={cast} />}</Container>
+      <Container>
+        {loading && <CastList cast={cast} />}
+        {error && <Error />}
+      </Container>
     </Section>
   );
 };

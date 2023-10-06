@@ -12,44 +12,6 @@ export const Box = styled.div`
   }
 `;
 
-export const ImgWrrap = styled.div`
-  position: relative;
-  border: 1px solid #eee;
-`;
-export const Span = styled.span`
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  background-color: #fff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 4px solid
-    ${({ rating }) => {
-      if (rating <= 5) {
-        return 'red';
-      } else if (rating < 7) {
-        return 'orange';
-      }
-      return 'green';
-    }};
-`;
-
-export const DetailWrrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  p {
-    margin-bottom: 30px;
-  }
-  h4 {
-    margin-bottom: 10px;
-  }
-`;
-
 export const ListLink = styled.ul`
   position: absolute;
   bottom: 0;
