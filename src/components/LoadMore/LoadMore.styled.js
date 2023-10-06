@@ -12,6 +12,7 @@ export const Button = styled.button`
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   display: block;
+  margin-top: 20px;
   margin-bottom: 20px;
   color: #fff;
   border: 0;
