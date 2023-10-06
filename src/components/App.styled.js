@@ -9,4 +9,5 @@ export const Container = styled.div`
 export const Section = styled.section`
   padding: 60px 0;
   border-bottom: 1px solid #eee;
+  height: 100%;
 `;

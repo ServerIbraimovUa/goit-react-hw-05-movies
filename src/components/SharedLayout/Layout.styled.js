@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Header = styled.header`
   background-color: #b6c6bc;
-  border-bottom: 1px solid #eee;
+  /* border-bottom: 1px solid #eee; */
   padding: 0 20px;
   nav {
     display: flex;
@@ -21,14 +21,34 @@ export const Header = styled.header`
     margin-left: 172px;
 
     li {
-      padding: 24px 0;
     }
     a {
+      position: relative;
+      padding: 24px 0;
+      display: block;
       color: #000;
+      transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
       &:hover,
       &:focus,
       &:active {
-        color: #ee0000;
+        color: #600000;
+      }
+      &::after {
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 4px;
+        background-color: #600000;
+        border-radius: 4px;
+
+        transform: scaleX(0);
+        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      &:hover::after,
+      &:focus::after {
+        transform: scaleX(1);
       }
     }
   }

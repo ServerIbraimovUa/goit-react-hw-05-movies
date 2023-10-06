@@ -1,6 +1,7 @@
 import { Container, Section } from 'components/App.styled';
+import Loading from 'components/Loading/Loading';
 import MovieList from 'components/Movielist/MovieList';
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import { getMoveDetails } from 'services/movies-api';
 
@@ -38,9 +39,13 @@ const MovieDetails = () => {
   return (
     <>
       <Section>
-        <Container>{loading && <MovieList movie={movie} />}</Container>
+        <Container>
+          {loading ? <MovieList movie={movie} /> : <Loading />}
+        </Container>
       </Section>
-      <Outlet />
+      <Suspense fallback={<Loading />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

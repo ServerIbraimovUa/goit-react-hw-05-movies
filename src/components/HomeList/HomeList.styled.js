@@ -9,9 +9,10 @@ export const ListHome = styled.ul`
   li {
     width: 200px;
     font-size: 22px;
+    transition: all 350ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover {
       scale: 1.1;
-      color: red;
+      color: #600000;
     }
   }
   a {

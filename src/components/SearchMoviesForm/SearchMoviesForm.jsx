@@ -1,31 +1,21 @@
-import React, { useState } from 'react';
+import { Label } from './SearchMoviesForm.styled';
 
-const SearchMoviesForm = ({ handleQuery }) => {
-  const [search, setSearch] = useState('');
-
+const SearchMoviesForm = ({ handleQuery, queryParam }) => {
   const onSearch = e => {
-    setSearch(e.target.value);
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    handleQuery(search);
-
-    setSearch('');
+    const query = e.target.value;
+    const nextParams = query !== '' ? { query } : {};
+    handleQuery(nextParams);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        <input
-          type="text"
-          placeholder="Search"
-          value={search}
-          onChange={onSearch}
-        />
-      </label>
-      <button type="submit">Search</button>
-    </form>
+    <Label>
+      <input
+        type="text"
+        placeholder="Search"
+        value={queryParam}
+        onChange={onSearch}
+      />
+    </Label>
   );
 };
 

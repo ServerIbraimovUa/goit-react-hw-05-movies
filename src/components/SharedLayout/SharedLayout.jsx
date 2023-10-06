@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { Header, LinkStyle } from './Layout.styled';
 import { Container } from 'components/App.styled';
+import Loading from 'components/Loading/Loading';
 // import { Container } from 'components/App.styled';
 
 const SharedLayout = () => {
@@ -32,9 +33,11 @@ const SharedLayout = () => {
         </Container>
       </Header>
       <main>
-        <Outlet />
+        <Suspense fallback={<Loading />}>
+          <Outlet />
+        </Suspense>
       </main>
-      <footer>Footer</footer>
+      {/* <Footer>Footer</Footer> */}
     </>
   );
 };

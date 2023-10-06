@@ -1,15 +1,19 @@
 import React from 'react';
 import { Box, DetailWrrap, ImgWrrap, ListLink, Span } from './Movielist.styled';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useRef } from 'react';
 
 const MovieList = ({ movie }) => {
   const BASE_IMG = 'https://image.tmdb.org/t/p/w300';
+  const location = useLocation();
+  const ref = useRef(location.state?.from ?? '/');
 
   const { title, overview, genres, release_date, vote_average, poster_path } =
     movie;
   return (
     <>
       <Box>
+        <Link to={ref.current}>Go back</Link>
         <ImgWrrap>
           <img src={`${BASE_IMG}${poster_path}`} alt={title} />
           {vote_average && (
