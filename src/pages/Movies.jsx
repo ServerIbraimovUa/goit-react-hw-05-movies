@@ -44,6 +44,9 @@ const Movies = () => {
     searchMovie(queryParam, page);
   }, [page, queryParam]);
 
+  useEffect(() => {
+    if (!queryParam) return setLoadMore(false);
+  }, [queryParam]);
   const handleQuery = query => {
     setQueryText(query);
   };

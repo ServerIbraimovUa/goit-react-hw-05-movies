@@ -23,7 +23,7 @@ const SharedLayout = () => {
             </LinkStyle>
             <ul>
               <li>
-                <NavLink to="/">Nome</NavLink>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
                 <NavLink to="/movies">Movies</NavLink>

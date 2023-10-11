@@ -6,7 +6,7 @@ const HomeItem = ({ title, poster_path, id }) => {
   const location = useLocation();
   return (
     <li key={id}>
-      <Link to={`${id}`} state={{ from: location }}>
+      <Link to={`/movies/${id}`} state={{ from: location }}>
         <img src={`${BASE_IMG}${poster_path}`} alt={title} />
         {title && title.substring(0, 20)}
       </Link>

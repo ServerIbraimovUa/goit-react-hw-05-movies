@@ -6,7 +6,7 @@ export const ListHome = styled.ul`
   justify-content: space-between;
   gap: 24px;
 
-  li {
+  /* li {
     width: 200px;
     font-size: 22px;
     transition: all 350ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -18,5 +18,5 @@ export const ListHome = styled.ul`
   a {
     text-decoration: none;
     color: inherit;
-  }
+  } */
 `;

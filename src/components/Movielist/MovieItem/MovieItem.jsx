@@ -15,8 +15,10 @@ const MovieItem = ({ movie }) => {
       <LinkStyled to={ref.current}>Go back</LinkStyled>
       <ImgWrrap>
         <img src={`${BASE_IMG}${poster_path}`} alt={title} />
-        {vote_average && (
+        {vote_average ? (
           <Span rating={vote_average}>{vote_average.toFixed(1)}</Span>
+        ) : (
+          ''
         )}
       </ImgWrrap>
       <DetailWrrap>

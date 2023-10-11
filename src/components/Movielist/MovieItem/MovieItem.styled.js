@@ -17,15 +17,15 @@ export const Span = styled.span`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 4px solid
-    ${({ rating }) => {
-      if (rating <= 5) {
-        return 'red';
-      } else if (rating < 7) {
-        return 'orange';
-      }
-      return 'green';
-    }};
+  border: 4px solid ${({ rating }) => (rating >= 7 ? 'green' : 'yellow')};
+  /* ${({ rating }) => {
+    if (rating <= 5) {
+      return 'red';
+    } else if (rating < 7) {
+      return 'orange';
+    }
+    return 'green';
+  }}; */
 `;
 export const DetailWrrap = styled.div`
   display: flex;
